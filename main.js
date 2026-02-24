@@ -1,3 +1,11 @@
+const params = new URLSearchParams(window.location.search);
+
+const emailUrl = params.get("email");
+const phoneUrl = params.get("phone");
+
+if (emailUrl) document.getElementById("email").value = emailUrl;
+if (phoneUrl) document.getElementById("phone").value = phoneUrl;
+
 import { payWithCard } from "./payments/card.js";
 import { payWithPix } from "./payments/pix.js";
 import { validateEmail, validatePhone } from "./utils/validation.js";
@@ -62,4 +70,5 @@ form.addEventListener("submit", async (e) => {
     message.textContent = "Erro inesperado.";
     message.style.color = "red";
   }
+
 });
