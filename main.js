@@ -1,3 +1,9 @@
+import { payWithCard } from "./payments/card.js";
+import { payWithPix } from "./payments/pix.js";
+import { validateEmail, validatePhone } from "./utils/validation.js";
+import { sendEmail } from "./utils/email.js";
+
+// pegar parâmetros da URL
 const params = new URLSearchParams(window.location.search);
 
 const emailUrl = params.get("email");
@@ -5,11 +11,6 @@ const phoneUrl = params.get("phone");
 
 if (emailUrl) document.getElementById("email").value = emailUrl;
 if (phoneUrl) document.getElementById("phone").value = phoneUrl;
-
-import { payWithCard } from "./payments/card.js";
-import { payWithPix } from "./payments/pix.js";
-import { validateEmail, validatePhone } from "./utils/validation.js";
-import { sendEmail } from "./utils/email.js";
 
 let paymentMethod = "card";
 
@@ -37,7 +38,6 @@ form.addEventListener("submit", async (e) => {
   const email = form.email.value;
   const phone = form.phone.value;
 
-  // validação
   if (!validateEmail(email) || !validatePhone(phone)) {
     message.textContent = "E-mail ou telefone inválido.";
     message.style.color = "red";
@@ -58,7 +58,6 @@ form.addEventListener("submit", async (e) => {
 
     if (result?.success) {
       await sendEmail(email, result.productInfo);
-
       message.textContent = "Pagamento aprovado ✅ Verifique seu e-mail.";
       message.style.color = "green";
     } else {
@@ -70,5 +69,4 @@ form.addEventListener("submit", async (e) => {
     message.textContent = "Erro inesperado.";
     message.style.color = "red";
   }
-
 });
