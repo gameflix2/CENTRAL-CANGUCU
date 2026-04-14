@@ -214,20 +214,22 @@ footer{background:rgba(8,6,4,0.96);border-top:1px solid var(--border-gold);paddi
 <!-- WPP CONFIG -->
 <div class="wpp-config" id="wpp-cfg">
   <label>NÚMERO WHATSAPP</label>
-  <input type="text" id="wpp-inp" placeholder="Ex: 5553981045078">
+  <input type="text" id="wpp-inp" placeholder="Ex: 55539XXXXXXX">
   <button class="wpp-save" onclick="saveWpp()">✓ Salvar</button>
 </div>
 <button class="wpp-float" onclick="toggleWpp()" title="WhatsApp">💬</button>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <div class="nav-logo-placeholder">🍕</div>
+    <img src="https://res.cloudinary.com/dlt1gqwnc/image/upload/v1776146773/514781163_17843666484524152_6793805256280985604_n_b3edec.jpg" alt="Logo Pizza Prime" class="nav-logo-img">
     <div>
       <div class="nav-title">Pizza Prime</div>
       <div class="nav-sub">Gourmet Artesanal · Canguçu/RS</div>
     </div>
   </div>
+ 
+     
+  
   <div class="nav-right">
     <button class="nav-insta" onclick="window.open('https://www.instagram.com/pizza_prime_/','_blank')">📸 @pizza_prime_</button>
     <button class="nav-wpp" onclick="chamarWpp('Olá! Vi o cardápio e quero fazer um pedido! 🍕')">💬 Pedir Agora</button>
@@ -349,8 +351,7 @@ const IG_IMGS=[
   {url:'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80',label:'Massa Artesanal'},
   {url:'https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=400&q=80',label:'Premium'},
   {url:'https://images.unsplash.com/photo-1594007654729-407eedc4be65?w=400&q=80',label:'Quatro Queijos'},
-  {url:'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&q=80',label:'Calabresa'},
-  {url:'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=400&q=80',label:'Pepperoni'},
+  
 ];
 
 const PIZZAS=[
@@ -382,7 +383,7 @@ const PIZZAS=[
   {id:6,name:'Portuguesa Artesanal',cat:'classica',
    desc:'Presunto, ovos, cebola, azeitona, pimentão e mussarela. A pizza mais completa do cardápio, cheia de recheio do jeito que você merece.',
    ingr:['Presunto','Ovos','Azeitona','Pimentão','Cebola'],badge:null,emoji:'🇵🇹',
-   imgs:['https://images.unsplash.com/photo-1600628421060-909bb3d6e08b?w=700&q=80','https://images.unsplash.com/photo-1604382355076-af4b0eb60143?w=700&q=80'],
+   imgs:['https://www.galbani.com.br/wp-content/uploads/2024/11/shutterstock_2461956517-_2_.webp','https://images.unsplash.com/photo-1604382355076-af4b0eb60143?w=700&q=80'],
    prices:{P:39,M:52,G:65,GG:78}},
   {id:7,name:'Nordestina Gourmet',cat:'gourmet',
    desc:'Carne de sol desfiada, queijo coalho dourado, mandioca crocante e pimentão. O sabor do nordeste em formato gourmet, único em Canguçu.',
@@ -397,12 +398,12 @@ const PIZZAS=[
   {id:9,name:'Nutella & Morango',cat:'doce',
    desc:'Base generosa de Nutella, morangos frescos fatiados, leite condensado e coco ralado tostado. A sobremesa que virou vício.',
    ingr:['Nutella','Morango fresco','Leite condensado','Coco ralado'],badge:'top',emoji:'🍓',
-   imgs:['https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=700&q=80','https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=700&q=80'],
+   imgs:['https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/01/83/5f/pizza-3-queijos-massa.jpg?w=900&h=500&s=1','https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=700&q=80'],
    prices:{P:38,M:50,G:63,GG:74}},
   {id:10,name:'Banana Caramelada',cat:'doce',
    desc:'Banana nanica caramelada com canela, doce de leite cremoso e granola crocante por cima. Doce que agrada toda a família.',
    ingr:['Banana','Doce de leite','Canela','Granola'],badge:null,emoji:'🍌',
-   imgs:['https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=700&q=80','https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&q=80'],
+   imgs:['https://www.receiteria.com.br/wp-content/uploads/pizza-caseira-2-rotated.jpg','https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&q=80'],
    prices:{P:35,M:46,G:58,GG:69}},
 ];
 
@@ -509,7 +510,7 @@ function enviarPedido(){
   chamarWpp(msg);
 }
 function chamarWpp(msg){
-  const num=localStorage.getItem('pp_wpp')||'55553981045078';
+  const num=localStorage.getItem('pp_wpp')||'5553999999999';
   window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`,'_blank');
 }
 function toggleWpp(){
